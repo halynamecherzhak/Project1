@@ -10,3 +10,9 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: ./Project1
+      - name: Checkout Project 2
+        uses: actions/checkout@main
+        with:
+          repository: halynamecherzhak/Project2
+          token: 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
+          path: ./Project2
