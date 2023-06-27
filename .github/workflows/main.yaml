@@ -22,7 +22,7 @@ jobs:
 
       - name: Read version.json file
         run: |
-          content=`cat halynamecherzhak/Project1/version.json`
+          content=`version.json`
           echo "$content"
 
       - name: Push Project2
