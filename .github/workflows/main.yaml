@@ -22,8 +22,7 @@ jobs:
 
       - name: Read version.json file
         run: |
-          content=`cat version.json`
-          echo "$content"
+          main: 'index.js'
 
       - name: Push Project2
         run: |
