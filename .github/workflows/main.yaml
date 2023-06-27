@@ -13,4 +13,6 @@ jobs:
           path: ./Project1
 
       - name: Read version.json file
-        run: node ./index.js
+        runs:
+          using: "node18.14.0"
+          main: "index.js"
