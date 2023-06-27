@@ -22,14 +22,7 @@ jobs:
 
       - name: Copy/Create file
         run: |
-          FILE=./Project1/package
-          if [ -f "$FILE" ]; then
-            echo "Copying $FILE"
-            cp -R ./Project1/package ./Project2
-          else 
-            echo "Creating $FILE"
-            touch ./Project2/file
-          fi
+          node index.js
 
       - name: Push Project2
         run: |
