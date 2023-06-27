@@ -21,15 +21,15 @@ jobs:
           path: ./Project2
 
       - name: Copy/Create file
-          - run: |
-            FILE=./Project1/file
-            if [ -f "$FILE" ]; then
-              echo "Copying $FILE"
-              cp -R ./Project1/file ./Project2
-            else 
-              echo "Creating $FILE"
-              touch ./projectB/file
-            fi
+        run: |
+          FILE=./Project1/file
+          if [ -f "$FILE" ]; then
+            echo "Copying $FILE"
+            cp -R ./Project1/file ./Project2
+          else 
+            echo "Creating $FILE"
+            touch ./projectB/file
+          fi
 
         - name: Push Project2
           run: |
