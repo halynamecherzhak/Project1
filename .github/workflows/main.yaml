@@ -13,7 +13,8 @@ jobs:
           path: ./Project1
       - name: Checkout Project 2
         uses: actions/checkout@main
+        env:
+            GITHUB_TOKEN: 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
         with:
           repository: halynamecherzhak/Project2
-          token: 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
           path: ./Project2
