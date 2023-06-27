@@ -13,5 +13,4 @@ jobs:
           path: ./Project1
 
       - name: Read version.json file
-        run: |
-          node ./index.js
+        run: node ./index.js
