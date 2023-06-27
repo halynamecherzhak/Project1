@@ -1,0 +1,39 @@
+on: push
+
+jobs:
+  replicate-file:
+    runs-on: ubuntu-latest
+    name: Replicate File
+
+    steps:
+      - name: Checkout Project A
+        uses: actions/checkout@v2
+        with:
+          path: ./Repository1
+
+      - name: Checkout Project B
+        uses: actions/checkout@main
+        with:
+          repository: halynamecherzhak/Repository2
+          token: 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
+          path: ./Repository2
+
+      - name: Copy/Create file
+        run: |
+          FILE=./Repository1/file
+          if [ -f "$FILE" ]; then
+            echo "Copying $FILE"
+            cp -R ./Repository1/package ./Repository2
+          else 
+            echo "Creating $FILE"
+            touch ./Repository2/package
+          fi
+
+      - name: Push Project B
+        run: |
+          cd ./Repository2
+          git add .
+          git config user.name Halyna Mecherzhak
+          git config user.email galya.mech@gmail.com
+          git commit -am "File Replicated from Project A"
+          git push
