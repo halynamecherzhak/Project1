@@ -1,41 +1,22 @@
-name: GitHub Action to transfer file from one repo to another
+name: Transfer File
+
 on: push
 
 jobs:
-  replicate-file:
+  copy-file:
     runs-on: ubuntu-latest
-    name: Transfer File
-
     steps:
-      - name: Checkout Project 1
+      - name: Checkout
         uses: actions/checkout@v2
-        with:
-          path: ./Project1
 
-      - name: Checkout Project 2
-        uses: actions/checkout@main
+      - name: Pushes test file
+        uses: halynamecherzhak/Project1@main
         env:
-          GITHUB_TOKEN: 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
+          API_TOKEN_GITHUB: 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
         with:
-          repository: halynamecherzhak/Project2
-          path: ./Project2
-
-      - name: Copy/Create file
-        run: |
-          FILE=./Project1/package
-          if [ -f "$FILE" ]; then
-            echo "Copying $FILE"
-            cp -R ./Project1/package ./Project2
-          else 
-            echo "Creating $FILE"
-            touch ./Project2/file
-          fi
-
-      - name: Push Project2
-        run: |
-          cd ./Project2
-          git add .
-          git config --global user.email "galya.mech@gmail.com"
-          git config --global user.name "Halyna Mecherzhak"
-          git commit -am "File Replicated from Project1"
-          git push
+          source_file: ""
+          destination_repo: "halynamecherzhak/Project2"
+          destination_folder: "Project2"
+          user_email: "galya.mech@gmail.com"
+          user_name: "Halyna Mecherzhak"
+          commit_message: "File transfered"
