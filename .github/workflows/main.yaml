@@ -1,3 +1,4 @@
+name: GitHub Action to transfer file from one repo to another
 on: push
 
 jobs:
