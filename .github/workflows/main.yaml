@@ -1,18 +1,6 @@
 name: GitHub Action to update version
 on: push
 
-jobs:
-  replicate-file:
-    runs-on: ubuntu-latest
-    name: Update Version
-
-    steps:
-      - name: Checkout Project 1
-        uses: actions/checkout@v2
-        with:
-          path: ./Project1
-
-      - name: Read version.json file
-        runs:
-          using: "node18.14.0"
-          main: "index.js"
+runs:
+  using: "node18.14.0"
+  main: "index.js"
