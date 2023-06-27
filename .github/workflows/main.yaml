@@ -28,7 +28,7 @@ jobs:
             cp -R ./Project1/file ./Project2
           else 
             echo "Creating $FILE"
-            touch ./projectB/file
+            touch ./Project2/file
           fi
 
       - name: Push Project2
