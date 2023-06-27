@@ -12,7 +12,7 @@ jobs:
           path: ./Project1
 
       - name: Checkout Project 2
-        uses: actions/checkout@main
+        uses: actions/checkout@v2
         with:
           repository: halynamecherzhak/Project2
           token: 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
