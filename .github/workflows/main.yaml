@@ -15,10 +15,11 @@ jobs:
       - name: Checkout Project 2
         uses: actions/checkout@main
         env:
-            GITHUB_TOKEN: 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
+          GITHUB_TOKEN: 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
         with:
           repository: halynamecherzhak/Project2
           path: ./Project2
+
       - name: Copy/Create file
         run: |
           FILE=./Project1/file
@@ -30,9 +31,9 @@ jobs:
             touch ./projectB/file
           fi
 
-        - name: Push Project2
-          run: |
-            cd ./Project2
-            git add .
-            git commit -am "File Replicated from Project1"
-            git push
+      - name: Push Project2
+        run: |
+          cd ./Project2
+          git add .
+          git commit -am "File Replicated from Project1"
+          git push
