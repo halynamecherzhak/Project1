@@ -1,6 +1,16 @@
-name: "Test"
-description: ""
+on: [push]
 
-runs:
-  using: "node18"
-  main: "index.js"
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: My first own action to say hello
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Hello world action step
+        uses: ./ # Uses an action in the root directory
+        id: hello
+        with:
+          who-to-greet: "Halyna"
+      - name: Get the output time
+        run: echo "The time was $"
