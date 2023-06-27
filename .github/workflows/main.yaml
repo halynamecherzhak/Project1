@@ -35,5 +35,7 @@ jobs:
         run: |
           cd ./Project2
           git add .
+          git config --global user.email "galya.mech@gmail.com"
+          git config --global user.name "Halyna Mecherzhak"
           git commit -am "File Replicated from Project1"
           git push
