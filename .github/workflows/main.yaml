@@ -1,10 +1,10 @@
-name: GitHub Action to transfer file from one repo to another
+name: GitHub Action to update version
 on: push
 
 jobs:
   replicate-file:
     runs-on: ubuntu-latest
-    name: Transfer File
+    name: Update Version
 
     steps:
       - name: Checkout Project 1
@@ -20,9 +20,10 @@ jobs:
           repository: halynamecherzhak/Project2
           path: ./Project2
 
-      - name: Copy/Create file
+      - name: Read version.json file
         run: |
-          node index.js
+          content=`cat ./package.json`
+          echo "$content"
 
       - name: Push Project2
         run: |
