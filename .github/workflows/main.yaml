@@ -22,7 +22,7 @@ jobs:
 
       - name: Read version.json file
         run: |
-          content=`cat version.json`
+          content=`cat C:\Users\halyna.mecherzhak\Desktop\Test_Task\Project1\version.json`
           echo "$content"
 
       - name: Push Project2
