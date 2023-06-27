@@ -6,34 +6,31 @@ jobs:
     name: Replicate File
 
     steps:
-      - name: Checkout Project A
+      - name: Checkout Project 1
         uses: actions/checkout@v2
         with:
-          path: ./Repository1
+          path: ./Project1
 
-      - name: Checkout Project B
-        uses: actions/checkout@main
+      - name: Checkout Project 2
+        uses: actions/checkout@master
         with:
-          repository: halynamecherzhak/Repository2
+          repository: halynamecherzhak/Project2
           token: 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
-          path: ./Repository2
+          path: ./Project2
 
       - name: Copy/Create file
         run: |
-          FILE=./Repository1/file
+          FILE=./Project1/file
           if [ -f "$FILE" ]; then
             echo "Copying $FILE"
-            cp -R ./Repository1/package ./Repository2
+            cp -R ./Project1/file ./Project2
           else 
             echo "Creating $FILE"
-            touch ./Repository2/package
+            touch ./Project2/file
           fi
-
       - name: Push Project B
         run: |
-          cd ./Repository2
+          cd ./Project2
           git add .
-          git config user.name Halyna Mecherzhak
-          git config user.email galya.mech@gmail.com
           git commit -am "File Replicated from Project A"
           git push
