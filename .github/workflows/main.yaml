@@ -22,7 +22,7 @@ jobs:
 
       - name: Read version.json file
         run: |
-          node ./index.js
+          node index.js
 
       - name: Push Project2
         run: |
