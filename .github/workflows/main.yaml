@@ -28,12 +28,12 @@ jobs:
               cp -R ./Project1/file ./Project2
             else 
               echo "Creating $FILE"
-              touch ./Project2/file
+              touch ./projectB/file
             fi
 
-        - name: Push Project B
+        - name: Push Project2
           run: |
             cd ./Project2
             git add .
-            git commit -am "File Replicated from Project A"
+            git commit -am "File Replicated from Project1"
             git push
