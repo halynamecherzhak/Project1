@@ -21,21 +21,19 @@ jobs:
           path: ./Project2
 
       - name: Copy/Create file
-          run: |
-            FILE=./projectA/file
+          run: ||
+            FILE=./Project1/file
             if [ -f "$FILE" ]; then
               echo "Copying $FILE"
-              cp -R ./projectA/file ./projectB
+              cp -R ./Project1/file ./Project2
             else 
               echo "Creating $FILE"
-              touch ./projectB/file
+              touch ./Project2/file
             fi
 
         - name: Push Project B
           run: |
-            cd ./projectB
+            cd ./Project2
             git add .
-            git config user.name github-actions
-            git config user.email github-actions@github.com
             git commit -am "File Replicated from Project A"
             git push
