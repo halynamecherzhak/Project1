@@ -1,16 +1,17 @@
-on: [push]
-
+name: Testing
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
 jobs:
-  hello_world_job:
+  build:
     runs-on: ubuntu-latest
-    name: My first own action to say hello
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Hello world action step
-        uses: ./ # Uses an action in the root directory
-        id: hello
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v2
         with:
-          who-to-greet: "Halyna"
-      - name: Get the output time
-        run: echo "The time was $"
+          node-version: "18.x"
+      - name: Start node.js file
+        run: npm start
